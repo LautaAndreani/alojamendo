@@ -8,10 +8,10 @@ import Cards from "../../components/Cards";
 
 const Posts = () => {
   const { getDataFirebase, data } = GetData();
-
   //Call data to Firebase
   useEffect(() => {
     getDataFirebase();
+    window.scrollTo({ top: 0 });
     //eslint-disable-next-line
   }, []);
   return (

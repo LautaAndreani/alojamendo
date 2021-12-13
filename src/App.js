@@ -8,6 +8,7 @@ import Faq from "./pages/Faq";
 import Submit from "./pages/Submit";
 import Footer from "./components/Footer";
 import Info from "./pages/Posts/Info";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/como-funciona" element={<Faq />} />
           <Route path="/publicar" element={<Submit />} />
           <Route path="/posts/:id" element={<Info />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </BrowserRouter>

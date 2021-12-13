@@ -37,8 +37,8 @@ const MoreDetails = ({ res }) => {
             <Stack direction="row" w="100%" h="80vh" overflow="hidden" alignItems="center">
               <Box w="80%" h="100vh" borderRadius="xl" overflow="hidden">
                 <Image
-                  src={urlLink[0].urlLink}
-                  alt={urlLink[0].imageData}
+                  src={urlLink.length === 0 ? null : urlLink[0].urlLink}
+                  alt={urlLink.length === 0 ? null : urlLink[0].imageData}
                   objectFit="cover"
                   w="100%"
                   h="100%"
@@ -46,19 +46,21 @@ const MoreDetails = ({ res }) => {
                 />
               </Box>
               <Stack display="flex" spacing={2}>
-                {urlLinkThumb.map((thumbnails) => (
-                  <Box key={nanoid()} overflow="hidden" minH="50vh" borderRadius="md">
-                    <Image
-                      src={thumbnails.urlLink}
-                      alt={thumbnails.imageData}
-                      w="100%"
-                      h="100%"
-                      objectFit="cover"
-                      _hover={{ transition: "0.5s transform", transform: "scale(1.1)" }}
-                      borderRadius="md"
-                    />
-                  </Box>
-                ))}
+                {urlLink.length === 0
+                  ? null
+                  : urlLinkThumb.map((thumbnails) => (
+                      <Box key={nanoid()} overflow="hidden" minH="50vh" borderRadius="md">
+                        <Image
+                          src={thumbnails.urlLink}
+                          alt={thumbnails.imageData}
+                          w="100%"
+                          h="100%"
+                          objectFit="cover"
+                          _hover={{ transition: "0.5s transform", transform: "scale(1.1)" }}
+                          borderRadius="md"
+                        />
+                      </Box>
+                    ))}
               </Stack>
             </Stack>
           </Stack>

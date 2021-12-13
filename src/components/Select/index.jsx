@@ -5,7 +5,7 @@ const SelectComp = ({ title, options, name, handleChange }) => {
   return (
     <FormControl>
       <FormLabel>{title}</FormLabel>
-      <Select iconColor="brand.btn" bg="#E5E5E5" name={name} placeholder="Seleccionar" onChange={handleChange}>
+      <Select isRequired iconColor="brand.btn" bg="#E5E5E5" name={name} placeholder="Seleccionar" onChange={handleChange}>
         {options.map((option, i) => (
           <Box as="option" key={i}>
             {option}

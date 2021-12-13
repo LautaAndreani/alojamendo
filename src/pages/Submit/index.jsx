@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
 import Form from "../Submit/Form";
@@ -6,6 +6,10 @@ import Form from "../Submit/Form";
 const MotionBox = motion(Box);
 
 const Submit = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    //eslint-disable-next-line
+  }, []);
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Stack textAlign="center" p={8} mt="4rem">

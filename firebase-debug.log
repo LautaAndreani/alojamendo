@@ -1,0 +1,71 @@
+[debug] [2021-12-13T15:38:56.440Z] ----------------------------------------------------------------------
+[debug] [2021-12-13T15:38:56.441Z] Command:       /snap/node/5645/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2021-12-13T15:38:56.442Z] CLI Version:   9.23.1
+[debug] [2021-12-13T15:38:56.442Z] Platform:      linux
+[debug] [2021-12-13T15:38:56.442Z] Node Version:  v16.13.1
+[debug] [2021-12-13T15:38:56.442Z] Time:          Mon Dec 13 2021 12:38:56 GMT-0300 (Argentina Standard Time)
+[debug] [2021-12-13T15:38:56.442Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-12-13T15:38:56.481Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-12-13T15:38:56.481Z] > authorizing via signed-in user (lautaroandreani2016@gmail.com)
+[debug] [2021-12-13T15:38:56.482Z] [iam] checking project mendostay-firebase for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-12-13T15:38:56.483Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mendostay-firebase:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-12-13T15:38:57.412Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 13 Dec 2021 15:38:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=823","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-13T15:38:57.415Z] > refreshing access token with scopes: []
+[debug] [2021-12-13T15:38:57.415Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-13T15:38:57.565Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Mon, 13 Dec 2021 15:38:57 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-13T15:38:57.574Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mendostay-firebase [none]
+[debug] [2021-12-13T15:38:57.977Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mendostay-firebase 200
+[debug] [2021-12-13T15:38:57.978Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mendostay-firebase {"projectId":"mendostay-firebase","projectNumber":"253150331518","displayName":"mendostay-firebase","name":"projects/mendostay-firebase","resources":{"hostingSite":"mendostay-firebase","storageBucket":"mendostay-firebase.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'mendostay-firebase'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-12-13T15:38:57.981Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-12-13T15:38:57.981Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-13T15:38:58.108Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Mon, 13 Dec 2021 15:38:58 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-13T15:38:58.115Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mendostay-firebase/versions  
+ {"config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-12-13T15:38:59.586Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 13 Dec 2021 15:38:59 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mendostay-firebase]: beginning deploy... 
+[info] i  hosting[mendostay-firebase]: found 19 files in build 
+[debug] [2021-12-13T15:38:59.597Z] > refreshing access token with scopes: []
+[debug] [2021-12-13T15:38:59.597Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-13T15:38:59.598Z] [hosting] hash cache [YnVpbGQ] stored for 19 files
+[debug] [2021-12-13T15:38:59.598Z] [hosting][hash queue][FINAL] {"max":1,"min":0,"avg":0,"active":0,"complete":19,"success":19,"errored":0,"retried":0,"total":19,"elapsed":3}
+[debug] [2021-12-13T15:38:59.720Z] <<< HTTP RESPONSE 200 {"date":"Mon, 13 Dec 2021 15:38:59 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-13T15:38:59.729Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mendostay-firebase/versions/9b5927f14d3a5d97:populateFiles [none]
+[debug] [2021-12-13T15:38:59.729Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mendostay-firebase/versions/9b5927f14d3a5d97:populateFiles {"files":{"/asset-manifest.json":"1f43b98a6cf3125eafaf74bad79620f23d401051287e459d975b415b1d2d8fb8","/favicon.ico":"c599b7a91ab3627e3538125d9f40adc2d4bf949046984262670545dc7738af06","/index.html":"e2d2c5c1c57e80399e7c0d102f2e7a385ab7694b7bcf19c14cece387f11b17f6","/logo.svg":"c47737c8661024e32410d5597c46e6ee747212a8a786874f733eca4d7525ae34","/manifest.json":"ed7b98046be74c7d1476b73ebb8cd1f00c2b34443af1525af60b9dd20be9fb9a","/precache-manifest.2ee57ff9b4330d6e4c289c2ce33c6198.js":"decd342bac924dbc86de7a12b1265a8c4e9829d743facf245c990954e1c5bc2e","/robots.txt":"2544ca049f223a42bff01f72ad930a5edba75bbb7199d0f8430a02ff5aca16ec","/service-worker.js":"653d6dd6d56caecce9e700ef661ac09d7ec15391bfbfd8fc6d404ab8c1e6b1a4","/static/js/2.eb3375fb.chunk.js":"6e7e47dd4ffb6a32f5cd912201521136e6b9fbed3a225d014079f6845216c7a0","/static/js/2.eb3375fb.chunk.js.LICENSE.txt":"22465e32c057c34f045d8167945b1d1d5e9562e5221179fdd45dd062f48ef432","/static/js/2.eb3375fb.chunk.js.map":"351d2ccc929261e270054076edf28d9ea65eb9659f0f330a4b82128b091d7a3d","/static/js/3.b59b0a61.chunk.js":"d628d9890c3d259c3aeea1f5ea98e7332be421903b95892030d277f035d90841","/static/js/3.b59b0a61.chunk.js.map":"3dc54a439466a6802dac08d6cd97f08e2018359d9a6b94ed1b8b41073e0edb78","/static/js/main.ab360de2.chunk.js":"847214d98aac43fed0b8dbfd2ad78b89b8e554ff19f7561c9b881c92f94a1d32","/static/js/main.ab360de2.chunk.js.map":"98afa05d990b9d6971e498d48f261dc8f2aadc76f82fc253f8011139f6d33ecb","/static/js/runtime-main.0091e03f.js":"31121073fa3545dae4ab26cb895d7579dad13079e0b8c341943ac58f22178278","/static/js/runtime-main.0091e03f.js.map":"0124fe140967ff8ccb06be633e27c04303ac10fdabbbc6579e5959edc27a973f","/static/media/collage.9bd23283.png":"83338a5a9dc6e9ece12422fd923f9d80fbe3cbd28bb415cdd9a4968f031bb7d0","/static/media/isologo.a91bcb95.svg":"ed56ad6182fc92a4ea4078deac14de0421b66101b76425809478a8b2cf57723d"}}
+[debug] [2021-12-13T15:39:00.948Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mendostay-firebase/versions/9b5927f14d3a5d97:populateFiles 200
+[debug] [2021-12-13T15:39:00.948Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mendostay-firebase/versions/9b5927f14d3a5d97:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mendostay-firebase/versions/9b5927f14d3a5d97/files"}
+[debug] [2021-12-13T15:39:00.948Z] [hosting][populate queue][FINAL] {"max":1351,"min":1351,"avg":1351,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1351}
+[debug] [2021-12-13T15:39:00.948Z] [hosting] uploads queued: 0
+[debug] [2021-12-13T15:39:00.948Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1639409940948}
+[info] ✔  hosting[mendostay-firebase]: file upload complete 
+[debug] [2021-12-13T15:39:00.948Z] [hosting] deploy completed after 1361ms
+[debug] [2021-12-13T15:39:00.950Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "mendostay-firebase"
+    },
+    "site": "mendostay-firebase",
+    "version": "sites/mendostay-firebase/versions/9b5927f14d3a5d97"
+  }
+]
+[info] i  hosting[mendostay-firebase]: finalizing version... 
+[debug] [2021-12-13T15:39:00.950Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-12-13T15:39:00.950Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-13T15:39:01.077Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 13 Dec 2021 15:39:01 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-13T15:39:01.085Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/mendostay-firebase/versions/9b5927f14d3a5d97?updateMask=status  
+ {"status":"FINALIZED"}

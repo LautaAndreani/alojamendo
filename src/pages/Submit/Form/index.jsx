@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack, Box, InputGroup, InputLeftAddon, Input, FormControl, FormLabel, Textarea, Text, Icon, Button, Image, HStack } from "@chakra-ui/react";
-import { VStack } from "@chakra-ui/react";
+import { VStack, Spinner } from "@chakra-ui/react";
 import { MdCloudUpload } from "react-icons/md";
 import InputComp from "../../../components/Input";
 import SelectComp from "../../../components/Select";
 import { HandleClick } from "./Form.logical";
 import { nanoid } from "nanoid";
+import Confetti from "../../../components/Confetti";
+import { Navigate } from "react-router-dom";
 
 const Form = () => {
-  const { handleSubmit, handleChange, onFileChange, urlLink } = HandleClick();
+  const [uploadStatus, setUploadStatus] = useState(false);
+  const { handleSubmit, handleChange, onFileChange, urlLink, toSubmit, redirect } = HandleClick();
   const handleChanges = (e) => {
+    if (e.target.files.length === 0) {
+      return null;
+    }
     onFileChange(e);
+    setUploadStatus(true);
+    setTimeout(() => {
+      setUploadStatus(false);
+    }, 4000);
   };
   return (
     <Stack as="form" w="100%" p={6} spacing={6} onSubmit={handleSubmit}>
@@ -20,10 +30,10 @@ const Form = () => {
       </Stack>
       <Box>
         <FormControl isRequired>
-          <FormLabel>Número de WhatsApp para que puedan contactarte</FormLabel>
+          <FormLabel>Número de WhatsApp para que puedan contactarte (10 caracteres)</FormLabel>
           <InputGroup>
             <InputLeftAddon children="+54 9 " bg="green.400" color="brand.bg" />
-            <Input type="number" name="phone" bg="#E5E5E5" placeholder="2615111111" onChange={handleChange} />
+            <Input type="number" name="phone" bg="#E5E5E5" placeholder="2615190823" onChange={handleChange} />
           </InputGroup>
         </FormControl>
       </Box>
@@ -45,26 +55,27 @@ const Form = () => {
         <Text fontWeight="500">Para que tu publicación destaque ¡puedes subir fotos! </Text>
         <FormLabel textAlign="center" borderWidth=".1rem" borderColor="brand.btn" borderRadius="md" borderStyle="dashed" p={5}>
           <Icon as={MdCloudUpload} fontSize="5rem" textAlign="center" cursor="pointer" transition=".3s" _hover={{ color: "brand.btn" }} />
-          <Input type="file" nameprop="file" accept="image/png, image/jpeg" border="none" display="none" name="pictures" onChange={handleChanges} />
-          <Text>Seleccionar un archivo</Text>
+          <Input type="file" disabled={uploadStatus ? true : null} nameprop="file" accept="image/png, image/jpeg" border="none" display="none" name="pictures" onChange={handleChanges} />
+          <Text>Seleccionar un archivo (jpeg, jpg, png)</Text>
         </FormLabel>
         <Box>
-          <HStack>
-            {urlLink.length === 0 ? (
-              <Text textAlign="center" as="p" fontSize=".9rem" color="brand.description">
-                Aquí verás tus archivos
-              </Text>
+          <HStack justifyContent="center">
+            {uploadStatus ? (
+              <Spinner />
             ) : (
               urlLink.map((data) => (
                 <VStack p={3} key={nanoid()}>
                   <Text>{data.imageData}</Text>
-                  <Box w="80px" h="50px" overflow="hidden">
-                    <Image src={data.urlLink} borderRadius="md" objectFit="cover" />
+                  <Box w="70px" h="80px" overflow="hidden">
+                    <Image src={data.urlLink} borderRadius="md" objectFit="cover" w="100%" />
                   </Box>
                 </VStack>
               ))
             )}
           </HStack>
+          <Text textAlign="center" as="p" fontSize=".9rem" color="brand.description">
+            Aquí verás tus imágenes {urlLink.length} / 3
+          </Text>
         </Box>
         <FormLabel>
           <Text fontWeight="500" mb={2}>
@@ -73,16 +84,30 @@ const Form = () => {
           <Textarea name="description" placeholder="Empieza a tipear desde aquí" bg="#E5E5E5" resize="none" onChange={handleChange} />
         </FormLabel>
       </Box>
-      {/* Photos */}
-      {/* <Text fontWeight="500">Para que tu publicación destaque ¡puedes subir fotos! </Text>
-      <FormLabel textAlign="center" borderWidth=".1rem" borderColor="brand.btn" borderRadius="md" borderStyle="dashed" p={5}>
-        <Icon as={MdCloudUpload} fontSize="5rem" textAlign="center" cursor="pointer" transition=".3s" _hover={{ color: "brand.btn" }} />
-        <Input type="file" nameprop="file" accept="image/png, image/jpeg" border="none" display="none" name="pictures" onChange={handleChanges} />
-        <Text>Seleccionar un archivo</Text>
-      </FormLabel> */}
-      <Button role="button" type="submit" mt={4} p={2} w="100%" bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>
-        Todo listo ¡Publicar!
+      {toSubmit ? <Confetti /> : null}
+      <Button role="button" disabled={uploadStatus && true} type="submit" mt={4} p={2} w="100%" bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>
+        {toSubmit ? (
+          <>
+            <HStack alignItems={"center"}>
+              <Text>
+                Gracias por elegirnos
+                <span role="img" aria-labelledby="emoji-hearth">
+                  🤗
+                </span>{" "}
+                Redirigiendo...
+              </Text>
+              <Spinner />
+            </HStack>
+          </>
+        ) : (
+          "Todo listo ¡Publicar!"
+        )}
       </Button>
+      {redirect && (
+        <Box>
+          <Navigate to="/explorar" />
+        </Box>
+      )}
     </Stack>
   );
 };

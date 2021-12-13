@@ -22,8 +22,8 @@ const Cards = ({ post }) => {
         </HStack>
         <Box overflow="hidden" rounded="20px">
           <Image
-            src={urlLink[0].urlLink}
-            alt={urlLink[0].imageData}
+            src={urlLink.length === 0 ? null : urlLink[0].urlLink}
+            alt={urlLink.length === 0 ? null : urlLink[0].imageData}
             borderRadius="sm"
             w="100%"
             h="30vh"

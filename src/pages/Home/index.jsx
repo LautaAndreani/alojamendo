@@ -1,6 +1,6 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { Box, Stack, Text, Button, Image, ButtonGroup } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import collage from "../../assets/images/collage.png";
@@ -8,7 +8,7 @@ import ButtonPrimary from "../../components/Button";
 //Another sections
 import Alojadores from "./Hosts";
 import About from "./AboutUs";
-//Backend
+//Firebase
 import { GetData } from "../../helpers/helpers";
 const MotionBox = motion(Box);
 
@@ -17,6 +17,7 @@ const Home = () => {
   //Get data from Host.logical
   useEffect(() => {
     getDataFirebase();
+    window.scrollTo({ top: 0 });
     //eslint-disable-next-line
   }, []);
   return (
@@ -40,9 +41,9 @@ const Home = () => {
               </Box>
             </Text>
             <ButtonGroup>
-              <ButtonPrimary route="/explorar" title="Soy turista" />
+              <ButtonPrimary route="/explorar" title="Estoy buscando" />
               <Link to="/publicar">
-                <Button role="button" onClick={() => window.scrollTo({ top: 0 })} mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
+                <Button role="button" mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
                   Quiero alojar
                 </Button>
               </Link>
