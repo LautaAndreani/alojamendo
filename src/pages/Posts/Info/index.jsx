@@ -7,6 +7,7 @@ import MoreDetails from "../../../components/MoreDetails";
 const Info = () => {
   const params = useParams();
   const { getDataFirebase, data } = GetData();
+
   useEffect(() => {
     getDataFirebase();
     //eslint-disable-next-line

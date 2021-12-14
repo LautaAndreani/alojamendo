@@ -23,8 +23,8 @@ const Form = () => {
     }, 4000);
   };
   return (
-    <Stack as="form" w="100%" p={6} spacing={6} onSubmit={handleSubmit}>
-      <Stack direction="row">
+    <Stack as="form" w="100%" p={{ md: "6", base: "0" }} spacing={6} onSubmit={handleSubmit}>
+      <Stack direction={{ base: "column", md: "row" }}>
         <InputComp nameprop="name" label="Nombre" type="text" place="Juan" value={handleChange} />
         <InputComp nameprop="surname" label="Apellido" type="text" place="Perez" value={handleChange} />
       </Stack>
@@ -41,7 +41,7 @@ const Form = () => {
       <InputComp nameprop="locality" label="¿Dónde queda tu espacio? (Localidad)" type="text" place="Uspallata, Mendoza" value={handleChange} />
       <InputComp nameprop="address" label="Ahora sí... dirección de tu espacio" type="text" place="calle falsa 123" value={handleChange} />
       {/* Características */}
-      <Stack direction="row">
+      <Stack direction={{ base: "column", md: "row" }}>
         <SelectComp title="Habitación(es)" options={[1, 2, 3, 4, 5]} handleChange={handleChange} name="rooms" />
         <SelectComp title="Baño(s)" options={[1, 2, 3, 4]} name="restrooms" handleChange={handleChange} />
         <SelectComp title="Cochera" options={["no", "si"]} name="garaje" handleChange={handleChange} />
@@ -67,14 +67,14 @@ const Form = () => {
                 <VStack p={3} key={nanoid()}>
                   <Text>{data.imageData}</Text>
                   <Box w="70px" h="80px" overflow="hidden">
-                    <Image src={data.urlLink} borderRadius="md" objectFit="cover" w="100%" />
+                    <Image loading="lazy" src={data.urlLink} borderRadius="md" objectFit="cover" w="100%" />
                   </Box>
                 </VStack>
               ))
             )}
           </HStack>
           <Text textAlign="center" as="p" fontSize=".9rem" color="brand.description">
-            Aquí verás tus imágenes {urlLink.length} / 3
+            Acá verás tus imágenes {urlLink.length} / 3
           </Text>
         </Box>
         <FormLabel>
@@ -89,7 +89,7 @@ const Form = () => {
         {toSubmit ? (
           <>
             <HStack alignItems={"center"}>
-              <Text>
+              <Text as="p" fontSize={{ base: ".9rem", md: "1.5rem" }}>
                 Gracias por elegirnos
                 <span role="img" aria-labelledby="emoji-hearth">
                   🤗

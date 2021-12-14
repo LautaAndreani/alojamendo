@@ -13,18 +13,19 @@ const Cards = ({ post }) => {
   // Contenido demo, rellenar con objetos de firebase
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
-      <Box maxW="sm" borderRadius="xl" p={4} bg="brand.bg" overflow="hidden" minH="25rem" boxShadow="xl">
+      <Box maxW="sm" borderRadius="xl" w={{ base: "100%", md: "23rem" }} p={4} bg="brand.bg" overflow="hidden" minH="25rem" boxShadow="xl">
         <HStack alignItems="center" mb={4}>
           <Avatar size="sm" name={name} />
           <Text as="h5">
             {name} {surname}
           </Text>
         </HStack>
-        <Box overflow="hidden" rounded="20px">
+        <Box overflow="hidden" rounded="20px" maxHeight="20rem">
           <Image
             src={urlLink.length === 0 ? null : urlLink[0].urlLink}
             alt={urlLink.length === 0 ? null : urlLink[0].imageData}
             borderRadius="sm"
+            loading="lazy"
             w="100%"
             h="30vh"
             objectFit="cover"
@@ -60,15 +61,7 @@ const Cards = ({ post }) => {
           ) : null}
         </HStack>
         <Link to={`/posts/${post.id}`}>
-          <Button
-            role="button"
-            w="100%"
-            mt={4}
-            bg="brand.btn"
-            onClick={() => window.scrollTo({ top: 0 })}
-            color="brand.bg"
-            _hover={{ bg: "#789b8b" }}
-          >
+          <Button role="button" w="100%" mt={4} bg="brand.btn" onClick={() => window.scrollTo({ top: 0 })} color="brand.bg" _hover={{ bg: "#789b8b" }}>
             Ver más
           </Button>
         </Link>

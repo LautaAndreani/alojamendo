@@ -24,8 +24,8 @@ const Home = () => {
     <>
       <MotionBox as="main" initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }} transition={{ delay: 0.5 }} mt="5rem">
         <Stack direction="row" alignItems="center" flexWrap="wrap" justifyContent="space-evenly">
-          <Box p={10}>
-            <Text as="h1" color="brand.text" fontSize="48px" fontWeight="700" m="1rem 0" lineHeight="1.2" textAlign="left">
+          <Box p={5}>
+            <Text as="h1" color="brand.text" fontSize={{ base: "2rem", md: "2.5rem" }} fontWeight="700" m="1.5rem 0" lineHeight="1.2" textAlign="left">
               Encontrá o publicá alojamiento en
               <Box as="span" display="block">
                 Mendoza de una forma fácil.
@@ -51,7 +51,7 @@ const Home = () => {
           </Box>
           {/* Images */}
           <Box>
-            <Image src={collage} mt={6} />
+            <Image src={collage} p={3} loading="lazy" mt={6} />
           </Box>
         </Stack>
       </MotionBox>

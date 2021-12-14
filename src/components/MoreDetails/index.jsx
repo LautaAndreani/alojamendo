@@ -19,7 +19,7 @@ const MoreDetails = ({ res }) => {
   ];
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
-      <Stack justifyContent={"center"} p={10}>
+      <Stack justifyContent={"center"} p={{ base: "10", md: "5" }}>
         <Box w="90%" m="0 auto">
           <Stack>
             <HStack>
@@ -28,15 +28,16 @@ const MoreDetails = ({ res }) => {
                 {name} {surname}
               </Text>
             </HStack>
-            <Text as="h1" fontSize="48px" fontWeight="700" pt={3} lineHeight="1.2" textAlign="left">
+            <Text as="h1" fontSize={{ base: "2rem", md: "2.5rem" }} fontWeight="700" pt={3} lineHeight="1.2" textAlign="left">
               {title}
             </Text>
             <Text as="p" mt={3} color="brand.description">
               <Icon as={BiMap} /> {locality}
             </Text>
-            <Stack direction="row" w="100%" h="80vh" overflow="hidden" alignItems="center">
-              <Box w="80%" h="100vh" borderRadius="xl" overflow="hidden">
+            <Stack direction={{ base: "column", lg: "row" }} w="100%" h={{ base: "none", lg: "70vh" }} overflow="hidden" alignItems="center">
+              <Box w={{ base: "none", lg: "70%" }} minHeight={{ base: "none", lg: "50vh" }} borderRadius="xl" overflow="hidden">
                 <Image
+                  loading="lazy"
                   src={urlLink.length === 0 ? null : urlLink[0].urlLink}
                   alt={urlLink.length === 0 ? null : urlLink[0].imageData}
                   objectFit="cover"
@@ -49,8 +50,9 @@ const MoreDetails = ({ res }) => {
                 {urlLink.length === 0
                   ? null
                   : urlLinkThumb.map((thumbnails) => (
-                      <Box key={nanoid()} overflow="hidden" minH="50vh" borderRadius="md">
+                      <Box key={nanoid()} overflow="hidden" w={{ base: "none", lg: "70%" }} minHeight={{ base: "none", lg: "35vh" }} borderRadius="md">
                         <Image
+                          loading="lazy"
                           src={thumbnails.urlLink}
                           alt={thumbnails.imageData}
                           w="100%"
@@ -65,61 +67,57 @@ const MoreDetails = ({ res }) => {
             </Stack>
           </Stack>
           <Stack direction="row" pt={4}>
-            <Box minHeight="30vh" w="60%">
-              <Text as="h1" fontSize="32px" fontWeight="700" lineHeight="1.2" textAlign="left">
-                Para tener en cuenta
-              </Text>
-              <Text as="p" mt={3} color="brand.description">
-                {description}
-              </Text>
-              <Stack direction="row" spacing={3} flexWrap="wrap">
-                <Link
-                  href={`https://api.whatsapp.com/send?phone=${phone}&text=Hola%20${name}%20te%20contacto%20porque%20vi%20tu%20publicación%20en%20mendostay%20quería%20más%20info`}
-                  _hover=""
-                  isExternal
-                >
-                  <Button role="button" mt={4} bg="brand.btn" color="brand.bg" w="100%" _hover={{ bg: "#789b8b" }}>
-                    Contactar al dueño <Icon as={SiWhatsapp} ml={2} />
-                  </Button>
-                </Link>
-                <Link href={`https://www.google.com/maps/search/${address}/`} _hover="" isExternal>
-                  <Button role="button" mt={4} bg="brand.maps" color="brand.bg" w="100%" _hover={{ bg: "#1560c4" }}>
-                    Ver en Google Maps <Icon as={BiMap} ml={2} />
-                  </Button>
-                </Link>
-              </Stack>
-            </Box>
-            <Box w="40%">
-              <Text as="h2" fontSize="32px" fontWeight="700" lineHeight="1.2" textAlign="left">
-                Comodidades que ofrece
-              </Text>
-              <HStack p={3}>
-                {houseSpecs.map((data) => (
-                  <HStack key={nanoid()} p="1rem 0">
-                    <Icon
-                      as={data.icon}
-                      color={data.name === "no" ? "red.400" : ""}
-                      fontSize="2rem"
-                      p="5px"
-                      bg={data.name === "no" ? "red.100" : "green.100"}
-                      borderRadius="md"
-                      ml={2}
-                    />
-                    <Text as="h4" fontWeight="600" color={data.name === "no" ? "red.400" : "green.400"} fontSize="1rem">
-                      {data.title} : {data.name}
-                    </Text>
-                  </HStack>
-                ))}
-              </HStack>
-              <Stack>
-                <Text as="h2" fontSize="32px" fontWeight="700" lineHeight="1.2" textAlign="left">
-                  Otros
+            <Stack direction="row" flexWrap={{ base: "wrap", lg: "nowrap" }} w="100%">
+              <Box w={{ base: "100%", lg: "60%" }}>
+                <Text as="h2" fontSize={{ base: "1.5rem", md: "2rem" }} w="100%" fontWeight="700" lineHeight="1.2" textAlign="left">
+                  Para tener en cuenta
                 </Text>
-                <Text as="p" mt={3} color="brand.description">
-                  {others}
+                <Text as="p" mt={3} color="brand.description" minW="100%">
+                  {description}
                 </Text>
-              </Stack>
-            </Box>
+              </Box>
+              {/* Comodidades */}
+              <Box w={{ base: "100%", lg: "30%" }}>
+                <Text as="h2" fontSize={{ base: "1.5rem", md: "2rem" }} fontWeight="700" paddingTop={{ base: 5, lg: 0 }} lineHeight="1.2" textAlign="left">
+                  Comodidades que ofrece
+                </Text>
+                <Stack direction="row" flexWrap="wrap" p={3}>
+                  {houseSpecs.map((data) => (
+                    <HStack key={nanoid()} p="1rem 0">
+                      <Icon as={data.icon} color={data.name === "no" ? "red.400" : ""} fontSize="2rem" p="5px" bg={data.name === "no" ? "red.100" : "green.100"} borderRadius="md" ml={2} />
+                      <Text as="h4" fontWeight="600" color={data.name === "no" ? "red.400" : "green.400"} fontSize="1rem">
+                        {data.title} : {data.name}
+                      </Text>
+                    </HStack>
+                  ))}
+                </Stack>
+                <Stack>
+                  <Text as="h2" fontSize={{ base: "1.5rem", md: "2rem" }} fontWeight="700" lineHeight="1.2" textAlign="left">
+                    Otros
+                  </Text>
+                  <Text as="p" mt={3} color="brand.description">
+                    {others}
+                  </Text>
+                </Stack>
+              </Box>
+            </Stack>
+          </Stack>
+          <Stack direction="row" spacing={{ base: 1, lg: 2 }} flexWrap="wrap">
+            <Link
+              href={`https://api.whatsapp.com/send?phone=${phone}&text=Hola%20${name}%20te%20contacto%20porque%20vi%20tu%20publicación%20en%20mendostay%20quería%20más%20info`}
+              _hover=""
+              isExternal
+              w={{ base: "100%", lg: "15rem" }}
+            >
+              <Button role="button" mt={4} bg="brand.btn" color="brand.bg" w="100%" _hover={{ bg: "#789b8b" }}>
+                Contactar al dueñx <Icon as={SiWhatsapp} ml={2} />
+              </Button>
+            </Link>
+            <Link href={`https://www.google.com/maps/search/${address}/`} w={{ base: "100%", lg: "15rem" }} _hover="" isExternal>
+              <Button role="button" mt={4} bg="brand.maps" color="brand.bg" w="100%" _hover={{ bg: "#1560c4" }}>
+                Ver en Google Maps <Icon as={BiMap} />
+              </Button>
+            </Link>
           </Stack>
         </Box>
       </Stack>

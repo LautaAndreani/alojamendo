@@ -22,7 +22,7 @@ const NavBar = () => {
       w="100%"
     >
       <Link to="/">
-        <Image width="130px" src={logo} alt="mendostay-logo" />
+        <Image width="130px" display={{ base: "none", md: "flex" }} src={logo} alt="mendostay-logo" />
       </Link>
       <Box>
         <UnorderedList display="flex" fontFamily="Inter" fontWeight="500">
@@ -38,7 +38,7 @@ const NavBar = () => {
         </UnorderedList>
       </Box>
       <Link to="/publicar">
-        <Button rightIcon={<RiHomeHeartFill />} bg="brand.btntwo" color="brand.bg" _hover={{ bg: "#783202" }}>
+        <Button rightIcon={<RiHomeHeartFill />} bg="brand.btntwo" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#783202" }}>
           Alojar
         </Button>
       </Link>

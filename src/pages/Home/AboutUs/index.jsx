@@ -5,16 +5,8 @@ import ButtonPrimary from "../../../components/Button";
 const About = () => {
   return (
     <Stack direction="row" justifyContent="space-evenly" flexWrap="wrap" padding={10}>
-      <Box>
-        {/* <Image src={family} width="50rem" alt="ilustración-de-familia" /> */}
-        <lottie-player
-          src="https://assets6.lottiefiles.com/packages/lf20_fvwas0si.json"
-          background="transparent"
-          speed="1"
-          style={{ width: "450px", height: "450px", transform: "scaleX(-1)" }}
-          loop
-          autoplay
-        ></lottie-player>
+      <Box width={{ base: "300px", md: "450px" }} transform="scaleX(-1)">
+        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_fvwas0si.json" background="transparent" speed="1" style={{ width: "100%" }} loop autoplay></lottie-player>
       </Box>
       <Box>
         <Text as="h3" fontSize="3rem" color="brand.text" m="2rem 0" lineHeight="1.2" fontWeight="700">
@@ -24,7 +16,7 @@ const About = () => {
           </Box>
         </Text>
         <UnorderedList spacing="2rem" color="brand.text" fontWeight="500" fontSize="1.2rem">
-          <ListItem>Publicá o encontrá un espacio de una forma fácil</ListItem>
+          <ListItem>Publicá o encontrá un espacio de una forma fácil y directa</ListItem>
           <ListItem>No cobramos ningún tipo de comisión</ListItem>
           <ListItem>
             La ilustración es bonita{" "}

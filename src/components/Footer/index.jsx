@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Box, Text } from "@chakra-ui/react";
+import { Stack, Box, Text, StackDivider } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -10,6 +10,7 @@ const Footer = () => {
           Todos los derechos reservados. © {new Date().getFullYear()} mendostay.
         </Text>
       </Box>
+      <StackDivider p={4} />
       <Stack direction="row" spacing={10} color="brand.btn">
         <Link to="/">Inicio</Link>
         <Link to="/explorar">Explorar</Link>
