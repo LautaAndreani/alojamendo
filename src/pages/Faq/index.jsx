@@ -7,9 +7,9 @@ const MotionBox = motion(Box);
 
 const Faq = () => {
   return (
-    <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }} transition={{ delay: 0.5 }} mt="10rem" minH="100vh">
+    <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }} transition={{ delay: 0.5 }} mt={{ base: "8rem", md: "10rem" }} minH="100vh">
       {/* step 1 */}
-      <Stack mt={{ base: "5rem", md: "2rem" }}>
+      <Stack>
         <Stack direction="row" flexWrap={{ base: "wrap", xl: "nowrap" }} justifyContent="space-evenly" alignItems="center">
           <Stack paddingLeft={5} mb={5}>
             <HStack>
@@ -44,10 +44,7 @@ const Faq = () => {
           alignItems="center"
           direction={{ base: "column-reverse", xl: "row" }}
         >
-          {/* <Box display="flex" w="100%" bg="red" justifyContent="center">
-            <Image w={{ base: "80%", lg: "100%" }} objectFit="cover" loading="lazy" src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639491750/laptop-link-min_1_ntzsf5.png" />
-          </Box> */}
-          <Box w="60%">
+          <Box w={{ base: "100%", md: "60%" }}>
             <Image loading="lazy" w="100%" src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639491750/laptop-link-min_1_ntzsf5.png" />
           </Box>
           <Stack p={30}>
@@ -78,7 +75,7 @@ const Faq = () => {
           <Text as="p" textAlign="center">
             Cuando quieras podes empezar a utilizar{" "}
             <Box as="span" fontWeight={500}>
-              alojamendo.
+              mendostay.
             </Box>
           </Text>
           <ButtonPrimary route="/publicar" title="Comenzar" />

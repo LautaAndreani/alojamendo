@@ -25,7 +25,7 @@ const NavBar = () => {
         <Image width="130px" display={{ base: "none", md: "flex" }} src={logo} alt="mendostay-logo" />
       </Link>
       <Box>
-        <UnorderedList display="flex" fontFamily="Inter" fontWeight="500">
+        <UnorderedList display="flex" fontFamily="Inter" fontWeight="500" fontSize={{ base: ".8rem", md: "1rem" }}>
           <ListItem listStyleType="none" _hover={{ color: "brand.btn", transition: "0.2s" }} m={4}>
             <Link to="/">Inicio</Link>
           </ListItem>
