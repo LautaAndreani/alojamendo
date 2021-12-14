@@ -10,6 +10,7 @@ const MotionBox = motion(Box);
 
 const Cards = ({ post }) => {
   const { name, title, locality, surname, restrooms, rooms, garaje, urlLink } = post.data().inputs;
+
   // Contenido demo, rellenar con objetos de firebase
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import app from "../firebase/firebaseConfig";
 import { getFirestore } from "firebase/firestore";
 const db = getFirestore(app);
@@ -12,5 +12,11 @@ export const GetData = () => {
     setData(data.docs);
   };
 
-  return { getDataFirebase, data };
+  //Delete data from firebase
+  const deleteDataFirebase = async (idPost) => {
+    await deleteDoc(doc(db, "posts", `${idPost}`));
+    localStorage.clear();
+  };
+
+  return { getDataFirebase, deleteDataFirebase, data };
 };

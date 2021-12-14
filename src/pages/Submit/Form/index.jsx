@@ -12,6 +12,7 @@ import { Navigate } from "react-router-dom";
 const Form = () => {
   const [uploadStatus, setUploadStatus] = useState(false);
   const { handleSubmit, handleChange, onFileChange, urlLink, toSubmit, redirect } = HandleClick();
+  //Read inputs of fyle
   const handleChanges = (e) => {
     if (e.target.files.length === 0) {
       return null;
@@ -22,6 +23,7 @@ const Form = () => {
       setUploadStatus(false);
     }, 4000);
   };
+
   return (
     <Stack as="form" w="100%" p={{ md: "6", base: "0" }} spacing={6} onSubmit={handleSubmit}>
       <Stack direction={{ base: "column", md: "row" }}>
@@ -45,7 +47,7 @@ const Form = () => {
         <SelectComp title="Habitación(es)" options={[1, 2, 3, 4, 5]} handleChange={handleChange} name="rooms" />
         <SelectComp title="Baño(s)" options={[1, 2, 3, 4]} name="restrooms" handleChange={handleChange} />
         <SelectComp title="Cochera" options={["no", "si"]} name="garaje" handleChange={handleChange} />
-        <SelectComp title="Mascotas" options={["no", "si"]} name="pets" handleChange={handleChange} />
+        <SelectComp title="Admiten mascotas" options={["no", "si"]} name="pets" handleChange={handleChange} />
         <FormControl nameprop="otros">
           <FormLabel>Otros</FormLabel>
           <Input type="text" name="others" placeholder="Wifi, televisión" bg="#E5E5E5" onChange={handleChange} />

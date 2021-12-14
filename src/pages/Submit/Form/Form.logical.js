@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-// import db from "../../../firebase/firebaseConfig";
+import { nanoid } from "nanoid";
 import app from "../../../firebase/firebaseConfig";
 import { getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -8,13 +8,14 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 
 export const HandleClick = () => {
-  // const [post, setPost] = useState([]);
+  //eslint-disable-next-line
+  const [user, setUser] = useState(nanoid());
   const [toSubmit, setToSubmit] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [inputs, setInputs] = useState({});
   const [urlLink, setUrlLink] = useState([]);
 
-  //Upload poast firebase
+  //Upload post firebase
   const firebaseAdd = async () => {
     try {
       await addDoc(collection(db, "posts"), {
@@ -27,9 +28,9 @@ export const HandleClick = () => {
 
   //When the form is submit
   const handleSubmit = (e) => {
+    handleStorage();
     const validate = inputs.name === "" || inputs.address === "" || inputs.surname === "" || inputs.phone.length < 10 || inputs.title === "";
     e.preventDefault();
-    // setPost([...post, { inputs }]);else
     if (validate) {
       return alert("Revisa todos los campos");
     }
@@ -40,6 +41,7 @@ export const HandleClick = () => {
     }, 3000);
     firebaseAdd();
   };
+
   //Upload images to Firebase
   const onFileChange = async (e) => {
     if (urlLink.length < 3) {
@@ -56,13 +58,18 @@ export const HandleClick = () => {
     }
   };
 
-  //Read and save inputs value on state
+  //Create key for user
+  const handleStorage = () => {
+    window.localStorage.setItem("text", user);
+  };
 
+  //Read and save inputs value on state
   const handleChange = (e) => {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
       urlLink,
+      user,
     });
   };
 

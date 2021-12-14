@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Stack, HStack, Text, Box, Avatar, Image, Icon, Link, Button } from "@chakra-ui/react";
+import { Link as LinkRouter } from "react-router-dom";
 import { BiBed, BiCar, BiMap, BiBone } from "react-icons/bi";
 import { FaToiletPaper } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
 import { nanoid } from "nanoid";
 import { motion } from "framer-motion";
+import { GetData } from "../../helpers/helpers";
 
 const MotionBox = motion(Box);
 
 const MoreDetails = ({ res }) => {
-  const { name, title, locality, urlLink, surname, restrooms, rooms, pets, garaje, phone, address, others, description } = res.data().inputs;
+  //Get userkey state
+  const [userKey, setUserKey] = useState();
+  const { deleteDataFirebase } = GetData();
+  const { name, title, locality, urlLink, surname, restrooms, rooms, pets, garaje, phone, address, others, description, user } = res.data().inputs;
   const urlLinkThumb = urlLink.slice(1, 3);
   const houseSpecs = [
     { title: "habitación(es)", name: rooms, icon: BiBed },
@@ -17,6 +22,11 @@ const MoreDetails = ({ res }) => {
     { title: "garaje", name: garaje, icon: BiCar },
     { title: "mascotas", name: pets, icon: BiBone },
   ];
+  //Get user key
+  useEffect(() => {
+    const key = window.localStorage.getItem("text");
+    setUserKey(key);
+  }, []);
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Stack justifyContent={"center"} p={{ base: "10", md: "5" }}>
@@ -81,7 +91,7 @@ const MoreDetails = ({ res }) => {
                 <Text as="h2" fontSize={{ base: "1.5rem", md: "2rem" }} fontWeight="700" paddingTop={{ base: 5, lg: 0 }} lineHeight="1.2" textAlign="left">
                   Comodidades que ofrece
                 </Text>
-                <Stack direction="row" flexWrap="wrap" p={3}>
+                <Stack direction={{ base: "column", md: "row" }} flexWrap="wrap" p={3}>
                   {houseSpecs.map((data) => (
                     <HStack key={nanoid()} p="1rem 0">
                       <Icon as={data.icon} color={data.name === "no" ? "red.400" : ""} fontSize="2rem" p="5px" bg={data.name === "no" ? "red.100" : "green.100"} borderRadius="md" ml={2} />
@@ -102,7 +112,7 @@ const MoreDetails = ({ res }) => {
               </Box>
             </Stack>
           </Stack>
-          <Stack direction="row" spacing={{ base: 1, lg: 2 }} flexWrap="wrap">
+          <Stack direction="row" spacing={{ base: 1, lg: 2 }} flexWrap="wrap" alignItems="center">
             <Link
               href={`https://api.whatsapp.com/send?phone=${phone}&text=Hola%20${name}%20te%20contacto%20porque%20vi%20tu%20publicación%20en%20mendostay%20quería%20más%20info`}
               _hover=""
@@ -118,6 +128,13 @@ const MoreDetails = ({ res }) => {
                 Ver en Google Maps <Icon as={BiMap} />
               </Button>
             </Link>
+            {userKey === user ? (
+              <LinkRouter to="/">
+                <Text onClick={() => deleteDataFirebase(res.id)} w="100%" paddingTop={4} fontWeight={500} color="red.400">
+                  Eliminar post
+                </Text>
+              </LinkRouter>
+            ) : null}
           </Stack>
         </Box>
       </Stack>
