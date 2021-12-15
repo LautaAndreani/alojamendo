@@ -9,7 +9,7 @@ const Alojadores = ({ data }) => {
   return (
     <Stack p={10} m={5}>
       <Text as="h3" fontSize={{ base: "1.5rem", md: "2.5rem" }} textAlign={{ base: "center", md: "left" }} m="2rem 0" color="brand.text" fontWeight="700">
-        Alojadores nuevos{" "}
+        Últimas publicaciones{" "}
         <span role="img" aria-labelledby="emoji-house">
           <Image src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639581855/house_1f3e0_evqn4i.png" width="2.3rem" display="unset" />
         </span>
