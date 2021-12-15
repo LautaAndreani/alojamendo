@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { Stack, Text, Grid, Box, Spinner, Center } from "@chakra-ui/react";
+import { Stack, Text, Grid, Box, Spinner, Center, Image } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 //Data desde Host
 import { GetData } from "../Home/Hosts/Host.logical";
@@ -21,7 +21,7 @@ const Posts = () => {
           <Text as="h1" fontSize={{ base: "1.5rem", md: "2.5rem" }} color="brand.text" textAlign="center" fontWeight="700" lineHeight="1.2">
             Encontrá tu lugar perfecto{" "}
             <span role="img" aria-labelledby="emoji">
-              🗺️
+              <Image src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639581958/world-map_1f5fa-fe0f_uq8vco.png" display="inline" w="2.5rem" />
             </span>
           </Text>
         </Box>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Stack, Text } from "@chakra-ui/layout";
+import { Box, Stack, Text, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Form from "../Submit/Form";
 
@@ -15,8 +15,13 @@ const Submit = () => {
       <Stack textAlign="center" p={8} mt="4rem">
         <Text as="h1" fontSize="48px" fontWeight="700" m="1rem 0" lineHeight="1.2">
           Gracias por elegirnos
-          <span role="img" aria-labelledby="emoji-hearth">
-            💕
+          <span role="img" aria-labelledby="emoji-house">
+            <Image
+              src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639582003/smiling-face-with-smiling-eyes_1f60a_t7lnqb.png"
+              paddingLeft={1}
+              width="2.3rem"
+              display="unset"
+            />
           </span>
         </Text>
         <Text as="span">Podes completar el siguiente formulario para que podamos publicar tu espacio.</Text>
