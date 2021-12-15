@@ -60,13 +60,21 @@ const MoreDetails = ({ res }) => {
                 {urlLink.length === 0
                   ? null
                   : urlLinkThumb.map((thumbnails) => (
-                      <Box key={nanoid()} overflow="hidden" w={{ base: "none", lg: "70%" }} minHeight={{ base: "none", lg: "35vh" }} borderRadius="md">
+                      <Box
+                        key={nanoid()}
+                        overflow="hidden"
+                        w={{ base: "none", lg: "80%" }}
+                        bg="red"
+                        minHeight={{ base: "none", lg: "35vh" }}
+                        maxHeight="25vh"
+                        borderRadius="md"
+                      >
                         <Image
                           loading="lazy"
                           src={thumbnails.urlLink}
                           alt={thumbnails.imageData}
                           w="100%"
-                          h="100%"
+                          h="35vh"
                           objectFit="cover"
                           _hover={{ transition: "0.5s transform", transform: "scale(1.1)" }}
                           borderRadius="md"
@@ -94,7 +102,15 @@ const MoreDetails = ({ res }) => {
                 <Stack direction={{ base: "column", md: "row" }} flexWrap="wrap" p={3}>
                   {houseSpecs.map((data) => (
                     <HStack key={nanoid()} p="1rem 0">
-                      <Icon as={data.icon} color={data.name === "no" ? "red.400" : ""} fontSize="2rem" p="5px" bg={data.name === "no" ? "red.100" : "green.100"} borderRadius="md" ml={2} />
+                      <Icon
+                        as={data.icon}
+                        color={data.name === "no" ? "red.400" : ""}
+                        fontSize="2rem"
+                        p="5px"
+                        bg={data.name === "no" ? "red.100" : "green.100"}
+                        borderRadius="md"
+                        ml={2}
+                      />
                       <Text as="h4" fontWeight="600" color={data.name === "no" ? "red.400" : "green.400"} fontSize="1rem">
                         {data.title} : {data.name}
                       </Text>
