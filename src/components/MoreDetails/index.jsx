@@ -60,15 +60,7 @@ const MoreDetails = ({ res }) => {
                 {urlLink.length === 0
                   ? null
                   : urlLinkThumb.map((thumbnails) => (
-                      <Box
-                        key={nanoid()}
-                        overflow="hidden"
-                        w={{ base: "none", lg: "80%" }}
-                        bg="red"
-                        minHeight={{ base: "none", lg: "35vh" }}
-                        maxHeight="25vh"
-                        borderRadius="md"
-                      >
+                      <Box key={nanoid()} overflow="hidden" w={{ base: "none", lg: "80%" }} minHeight={{ base: "none", lg: "35vh" }} maxHeight="25vh" borderRadius="md">
                         <Image
                           loading="lazy"
                           src={thumbnails.urlLink}
