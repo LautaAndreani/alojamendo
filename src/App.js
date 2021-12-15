@@ -1,6 +1,6 @@
 import React from "react";
 import { Center } from "@chakra-ui/layout";
-import { HashRouter as BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
