@@ -28,7 +28,7 @@ const Home = () => {
             <Text as="h1" color="brand.text" fontSize={{ base: "2rem", md: "2.5rem" }} fontWeight="700" m="1.5rem 0" lineHeight="1.2" textAlign="left">
               Encontrá o publicá alojamiento en
               <Box as="span" display="block">
-                Mendoza de una forma fácil.{" "}
+                Mendoza de una forma fácil{" "}
                 <span role="img" aria-labelledby="emoji-house">
                   <Image src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639581855/house_1f3e0_evqn4i.png" width="2.3rem" display="unset" />
                 </span>

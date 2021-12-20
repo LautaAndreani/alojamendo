@@ -22,7 +22,7 @@ const NavBar = () => {
       w="100%"
     >
       <Link to="/">
-        <Image width="130px" display={{ base: "none", md: "flex" }} src={logo} alt="mendostay-logo" />
+        <Image width="130px" display={{ base: "none", md: "flex" }} src={logo} alt="mendostay-logo" className="logo-header" />
       </Link>
       <Box>
         <UnorderedList display="flex" fontFamily="Inter" fontWeight="500" fontSize={{ base: ".8rem", md: "1rem" }}>

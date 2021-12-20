@@ -30,7 +30,8 @@ const Cards = ({ post }) => {
             w="100%"
             h="30vh"
             objectFit="cover"
-            _hover={{ transition: "0.5s all", transform: "scale(1.1)" }}
+            style={{ scale: "1", transition: "0.5s ease-in-out" }}
+            _hover={{ transform: "scale(1.1)" }}
             rounded="20px"
           />
         </Box>

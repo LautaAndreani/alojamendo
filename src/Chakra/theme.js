@@ -19,6 +19,7 @@ export default extendTheme({
       footerbg: "#23292A",
       description: "#716D6D",
       maps: "#1A73E8",
+      export: "#D9E2DE",
     },
   },
   components: {

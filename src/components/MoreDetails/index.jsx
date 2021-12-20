@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Stack, HStack, Text, Box, Avatar, Image, Icon, Link, Button } from "@chakra-ui/react";
 import { Link as LinkRouter } from "react-router-dom";
+import { nanoid } from "nanoid";
+import { Stack, HStack, Text, Box, Avatar, Image, Icon, Link, Button } from "@chakra-ui/react";
 import { BiBed, BiCar, BiMap, BiBone } from "react-icons/bi";
 import { FaToiletPaper } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
-import { nanoid } from "nanoid";
 import { motion } from "framer-motion";
 import { GetData } from "../../helpers/helpers";
+import ModalComp from "../Modal";
 
 const MotionBox = motion(Box);
 
@@ -27,6 +28,7 @@ const MoreDetails = ({ res }) => {
     const key = window.localStorage.getItem("text");
     setUserKey(key);
   }, []);
+
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Stack justifyContent={"center"} p={{ base: "10", md: "5" }}>
@@ -53,7 +55,8 @@ const MoreDetails = ({ res }) => {
                   objectFit="cover"
                   w="100%"
                   h="100%"
-                  _hover={{ transition: "0.5s transform", transform: "scale(1.1)" }}
+                  style={{ scale: "1", transition: "0.5s ease-in-out" }}
+                  _hover={{ transform: "scale(1.1)" }}
                 />
               </Box>
               <Stack display="flex" spacing={2}>
@@ -68,7 +71,8 @@ const MoreDetails = ({ res }) => {
                           w="100%"
                           h="35vh"
                           objectFit="cover"
-                          _hover={{ transition: "0.5s transform", transform: "scale(1.1)" }}
+                          style={{ scale: "1", transition: "0.5s ease-in-out" }}
+                          _hover={{ transform: "scale(1.1)" }}
                           borderRadius="md"
                         />
                       </Box>
@@ -122,7 +126,7 @@ const MoreDetails = ({ res }) => {
           </Stack>
           <Stack direction="row" spacing={{ base: 1, lg: 2 }} flexWrap="wrap" alignItems="center">
             <Link
-              href={`https://api.whatsapp.com/send?phone=${phone}&text=Hola%20${name}%20te%20contacto%20porque%20vi%20tu%20publicación%20en%20mendostay%20quería%20más%20info`}
+              href={`https://api.whatsapp.com/send?phone=${phone}&text=Hola%20${name}%20te%20contacto%20porque%20vi%20tu%20publicación%20en%20alojamendo%20quería%20más%20info`}
               _hover=""
               isExternal
               w={{ base: "100%", lg: "15rem" }}
@@ -135,6 +139,9 @@ const MoreDetails = ({ res }) => {
               <Button role="button" mt={4} bg="brand.maps" color="brand.bg" w="100%" _hover={{ bg: "#1560c4" }}>
                 Ver en Google Maps <Icon as={BiMap} />
               </Button>
+            </Link>
+            <Link w={{ base: "100%", lg: "15rem" }} _hover="">
+              <ModalComp res={res} houseSpecs={houseSpecs} />
             </Link>
             {userKey === user ? (
               <LinkRouter to="/">

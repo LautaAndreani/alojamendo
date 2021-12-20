@@ -55,9 +55,18 @@ const Form = () => {
       </Stack>
       <Box>
         <Text fontWeight="500">Para que tu publicación destaque ¡puedes subir fotos! </Text>
-        <FormLabel textAlign="center" borderWidth=".1rem" borderColor="brand.btn" borderRadius="md" borderStyle="dashed" p={5}>
+        <FormLabel textAlign="center" borderWidth=".1rem" borderColor="brand.btn" borderRadius="md" borderStyle="dashed" p={5} cursor="pointer">
           <Icon as={MdCloudUpload} fontSize="5rem" textAlign="center" cursor="pointer" transition=".3s" _hover={{ color: "brand.btn" }} />
-          <Input type="file" disabled={uploadStatus ? true : null} nameprop="file" accept="image/png, image/jpeg" border="none" display="none" name="pictures" onChange={handleChanges} />
+          <Input
+            type="file"
+            disabled={uploadStatus ? true : null}
+            nameprop="file"
+            accept="image/png, image/jpeg"
+            border="none"
+            display="none"
+            name="pictures"
+            onChange={handleChanges}
+          />
           <Text>Seleccionar un archivo (jpeg, jpg, png)</Text>
         </FormLabel>
         <Box>
@@ -91,7 +100,7 @@ const Form = () => {
         {toSubmit ? (
           <>
             <HStack alignItems={"center"}>
-              <Text as="p" fontSize={{ base: ".9rem", md: "1.5rem" }}>
+              <Text as="p" fontSize={{ base: ".9rem", md: "1rem" }}>
                 Gracias por elegirnos
                 <span role="img" aria-labelledby="emoji-hearth">
                   🤗
