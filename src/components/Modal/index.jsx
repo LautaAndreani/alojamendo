@@ -28,7 +28,7 @@ export const ModalComp = ({ houseSpecs, res }) => {
         <ModalContent>
           <ModalHeader>Compartí de manera más simplifcada</ModalHeader>
           <ModalCloseButton />
-          <Box className="exportPost" w="100%" borderRadius="md" m="0 auto">
+          <Box className="exportPost" w="100%" bg="brand.btn" m="0 auto">
             <ModalBody overflow="hidden">
               <Export res={res} houseSpecs={houseSpecs} />
             </ModalBody>

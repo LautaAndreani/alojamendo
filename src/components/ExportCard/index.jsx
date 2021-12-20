@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/branding/isologo-w.svg";
-import test from "../../assets/images/test.jpg";
+import test from "../../assets/images/living.jpg";
 import { Avatar, Box, Center, HStack, Icon, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 import { BiMap } from "react-icons/bi";
@@ -11,7 +11,7 @@ const Export = ({ res, houseSpecs }) => {
   return (
     <>
       <Box w="100%" h="100%">
-        <Center display="block" bg="brand.export" mt={3} borderRadius="md" p={3}>
+        <Center display="block" bg="brand.export" borderRadius="md" p={3}>
           <Text as="h2" fontWeight={700} p={3} textAlign="center" fontSize={{ base: "1rem", md: "2rem" }}>
             {title}
           </Text>
@@ -34,9 +34,12 @@ const Export = ({ res, houseSpecs }) => {
                 </Text>
               </HStack>
             </Box>
-            <Box overflow="hidden" w="100%" maxH="30rem">
-              <Image src={test} objectFit="cover" borderRadius="md" margin="0 auto" h="100%" />
+            <Box overflow="hidden" w="100%" maxH="20rem">
+              <Image src={test} objectFit="cover" borderRadius="md" h="100%" />
             </Box>
+            <Text as="small" color="gray.600">
+              Imagen ilustrativa*
+            </Text>
           </VStack>
           <Stack direction="row" flexWrap="wrap" p={3} justifyContent="center">
             {houseSpecs.map((data) => (
