@@ -34,7 +34,7 @@ const Export = ({ res, houseSpecs }) => {
                 </Text>
               </HStack>
             </Box>
-            <Box overflow="hidden" w="100%" h="30rem">
+            <Box overflow="hidden" w="100%" maxH="30rem">
               <Image src={test} objectFit="cover" borderRadius="md" margin="0 auto" h="100%" />
             </Box>
           </VStack>
